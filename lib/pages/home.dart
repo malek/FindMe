@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class Home extends StatefulWidget {
   @override
   _HomState createState() => _HomState();
@@ -18,6 +16,7 @@ class _HomState extends State<Home> {
             fontWeight: FontWeight.bold,
           ),
         ),
+        backgroundColor: Colors.pink,
         centerTitle: true,
       ),
       body: SafeArea(
@@ -38,15 +37,20 @@ class _HomState extends State<Home> {
           ),
           SizedBox(height: 100),
           RaisedButton.icon(
-            color: Colors.grey[900],
+              color: Colors.blue,
               onPressed: () {
                 Navigator.pushNamed(context, '/register');
-               
               },
-              icon: Icon(Icons.add_to_home_screen, color: Colors.yellow[400],),
+              icon: Icon(
+                Icons.add_to_home_screen,
+                color: Colors.white,
+              ),
               label: Text(
                 'Register',
-                style: TextStyle(color: Colors.yellow[400], fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               )),
         ],
       )),

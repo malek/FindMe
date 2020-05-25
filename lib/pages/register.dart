@@ -9,7 +9,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar : AppBar(
+      appBar: AppBar(
         title: Text(
           'FindMe',
           style: TextStyle(
@@ -17,19 +17,24 @@ class _RegisterState extends State<Register> {
           ),
         ),
         centerTitle: true,
-
+        backgroundColor: Colors.pink,
       ),
       body: RaisedButton.icon(
-            color: Colors.grey[900],
-              onPressed: () {
-                Navigator.pushNamed(context, '/results');
-               
-              },
-              icon: Icon(Icons.add_to_home_screen, color: Colors.yellow[400],),
-              label: Text(
-                'Done',
-                style: TextStyle(color: Colors.yellow[400], fontSize: 16, fontWeight: FontWeight.bold),
-              )),
+          color: Colors.blue,
+          onPressed: () {
+            Navigator.pushNamed(context, '/results');
+          },
+          icon: Icon(
+            Icons.add_to_home_screen,
+            color: Colors.white,
+          ),
+          label: Text(
+            'Done',
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold),
+          )),
     );
   }
 }
