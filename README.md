@@ -1,10 +1,15 @@
 # findme
 
 A new Flutter project.
+to connect peopel with peaple 
+ ***** YAAAAAY *****
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
+## Getting Started 
+Our app is:
+/.......
+ talk
+......./
+Some help if you want to learn more about Flutter :D
 
 A few resources to get you started if this is your first Flutter project:
 
