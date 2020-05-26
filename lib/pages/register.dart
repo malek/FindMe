@@ -1,3 +1,5 @@
+import 'package:findme/pages/results.dart';
+import 'package:findme/widgets/rounded_button.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 
@@ -22,7 +24,7 @@ class _RegisterState extends State<Register> {
         ),
         hintText: 'ADD LINK',
         hintStyle: TextStyle(
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
       textAlign: TextAlign.center,
@@ -50,7 +52,7 @@ class _RegisterState extends State<Register> {
         ),
         hintText: 'Brand Name',
         hintStyle: TextStyle(
-          color: Colors.orangeAccent,
+          color: Colors.black,
         ),
       ),
       textAlign: TextAlign.center,
@@ -70,13 +72,8 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/flowerFloue.jpg'),
-                fit: BoxFit.cover)),
-        child: Scaffold(
-            backgroundColor: Colors.transparent,
+    return Scaffold(
+            
             body: Container(
               margin: EdgeInsets.all(24),
               child: Column(
@@ -99,6 +96,8 @@ class _RegisterState extends State<Register> {
                   _UrlField(),
                   SizedBox(height: 30),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       //cancel button
                       GestureDetector(
@@ -112,6 +111,7 @@ class _RegisterState extends State<Register> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(30),
+                            border: Border.all(width:2, color: Colors.black, style: BorderStyle.solid),
                             boxShadow: [
                               BoxShadow(
                                 offset: Offset(0, 15),
@@ -143,6 +143,7 @@ class _RegisterState extends State<Register> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(30),
+                            border: Border.all(width:2, color: Colors.black, style: BorderStyle.solid),
                             boxShadow: [
                               BoxShadow(
                                 offset: Offset(0, 15),
@@ -167,8 +168,26 @@ class _RegisterState extends State<Register> {
                     height: 60.0,
                     color: Colors.grey[800],
                   ),
+                   SizedBox(
+                     
+              width: MediaQuery.of(context).size.width * .6,
+              child: RoundedButton(
+                text: "Results",
+                fontSize: 20,
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Results();
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
                 ],
               ),
-            )));
+            ));
   }
 }
