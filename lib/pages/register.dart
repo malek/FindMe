@@ -11,13 +11,24 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   String urlLink;
   String brand;
+  final urlLinkControler = new TextEditingController();
+final brandControler = new TextEditingController();
+  Column addedButtonClmn = Column(
+    children: <Widget>[
+        //initialized 
+
+    ],
+  );
+
+
 
   Widget _UrlField() {
     return TextFormField(
+      controller: urlLinkControler,
       style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 2.0),
       decoration: InputDecoration(
         border: new OutlineInputBorder(
-          borderRadius: new BorderRadius.circular(25.0),
+          borderRadius: new BorderRadius.circular(5.0),
           borderSide: new BorderSide(),
         ),
         hintText: 'ADD LINK',
@@ -27,21 +38,14 @@ class _RegisterState extends State<Register> {
       ),
       textAlign: TextAlign.center,
       keyboardType: TextInputType.url,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Url is Required';
-        }
-
-        return null;
-      },
-      onSaved: (String value) {
-        urlLink = value;
-      },
+      
+      
     );
   }
 
   Widget _BrandNameField() {
     return TextFormField(
+      controller: brandControler,
       style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 2.0),
       decoration: InputDecoration(
         border: new OutlineInputBorder(
@@ -55,16 +59,8 @@ class _RegisterState extends State<Register> {
       ),
       textAlign: TextAlign.center,
       keyboardType: TextInputType.text,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Brand Name is Required';
-        }
-
-        return null;
-      },
-      onSaved: (String value) {
-        brand = value;
-      },
+      
+      
     );
   }
 
@@ -106,7 +102,7 @@ class _RegisterState extends State<Register> {
                             EdgeInsets.symmetric(horizontal: 30, vertical: 16),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               width: 2,
                               color: Colors.black,
@@ -131,7 +127,61 @@ class _RegisterState extends State<Register> {
                     ),
                     //Add button
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        //GestureDetector();
+                        setState(() {
+                          brand = brandControler.text;
+                         urlLink= urlLinkControler.text;
+                        });
+                        
+
+                        addedButtonClmn = Column(
+                          children: <Widget>[
+                            addedButtonClmn,
+
+                            GestureDetector(
+                              onTap: () {
+                                //GestureDetector();
+                              },
+                              child: Container(
+                                width: 700,
+                                alignment: Alignment.center,
+                                margin: EdgeInsets.symmetric(vertical: 4),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 30, vertical: 16),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                      width: 2,
+                                      color: Colors.black,
+                                      style: BorderStyle.solid),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      offset: Offset(0, 15),
+                                      blurRadius: 30,
+                                      color: Color(0xFF666666).withOpacity(.11),
+                                    ),
+                                  ],
+                                ),
+                                child: Text(
+                                  'Follow $brand on $urlLink',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: kIconColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
+                        setState(() {
+                          
+                        });
+
+                        //
+                      },
                       child: Container(
                         width: 100,
                         alignment: Alignment.center,
@@ -140,7 +190,7 @@ class _RegisterState extends State<Register> {
                             EdgeInsets.symmetric(horizontal: 30, vertical: 16),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               width: 2,
                               color: Colors.black,
@@ -169,6 +219,7 @@ class _RegisterState extends State<Register> {
                   height: 60.0,
                   color: Colors.grey[800],
                 ),
+                addedButtonClmn,
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .6,
                   child: RoundedButton(
