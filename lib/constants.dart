@@ -5,4 +5,7 @@ const kLightBlackColor = Color(0xFF8F8F8F);
 const kIconColor = Color(0xFFF48A37);
 const kProgressIndicator = Color(0xFFBE7066);
 
+const kBlueGreyColor = Color(0xff588da8);
+const kRedDarkColor = Color(0xff311010);
+
 final kShadowColor = Color(0xFFD3D3D3).withOpacity(.84);

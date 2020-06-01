@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../userInformation.dart';
 import '../widgets/socialMediaButton.dart';
 
 class Results extends StatefulWidget {
@@ -60,8 +61,12 @@ class Results extends StatefulWidget {
 // }
 
 class _ResultsState extends State<Results> {
+    UserInformation user = UserInformation();
+
   @override
   Widget build(BuildContext context) {
+        user = ModalRoute.of(context).settings.arguments as UserInformation;
+
     return Scaffold(
         appBar: AppBar(
           title: Text(
